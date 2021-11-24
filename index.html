@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>PINGART</title>
+    </head>
+    <body>
+        <ul id="messages"></ul>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+            var messages = document.getElementById('messages');
+            socket.on('message', function(msg) {
+                var item = document.createElement('li');
+                item.textContent = msg;
+                messages.appendChild(item);
+            });
+        </script>
+    </body>
+</html>
